@@ -4,19 +4,19 @@ const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
 
+let transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'murygin.development@gmail.com',
+    pass: '36v83NxyOR53dFk'
+  }
+});
+
 router.get('/', function(req, res) {
   res.render('contact', { title: 'Contact' });
 });
 
 router.post('/send', function (req, res) {
-  let transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: 'murygin.development@gmail.com',
-      pass: '36v83NxyOR53dFk'
-    }
-  });
-
   let message = `You have a new submission with the following details... \n` + 
     `Name: ${req.body.name}, Email: ${req.body.email}`;
 
