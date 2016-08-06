@@ -1,7 +1,11 @@
-# web-agency
-express js web-agency site
+# Web agency site build with expressjs
 
-To run use:
+#### Before run
+```sh
+npm install
+```
+
+#### To run:
 ```sh
 npm start
 ```
