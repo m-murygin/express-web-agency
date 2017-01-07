@@ -1,4 +1,20 @@
-# Web agency site build with expressjs
+# Web agency site build with ExpressJS with email notification.
+
+## Init configs
+1. Create `config.json` file in project directory.
+
+2. Fill configs
+
+  ```javascript
+  {
+    "email": "email to send from",
+    "password": "send email password",
+    "service": "send email service",
+    "destinationEmail": "destination email"
+  }
+  ```
+
+  [The list of available services](https://github.com/nodemailer/nodemailer-wellknown#supported-services)
 
 ## Getting started
 

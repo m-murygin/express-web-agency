@@ -3,12 +3,13 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const config = require('../config.json');
 
-let transporter = nodemailer.createTransport({
-  service: 'Gmail',
+const transporter = nodemailer.createTransport({
+  service: config.service,
   auth: {
-    user: 'murygin.development@gmail.com',
-    pass: '36v83NxyOR53dFk'
+    user: config.email,
+    pass: config.password
   }
 });
 
@@ -17,12 +18,12 @@ router.get('/', function(req, res) {
 });
 
 router.post('/send', function (req, res) {
-  let message = `You have a new submission with the following details... \n` + 
+  const message = `You have a new submission with the following details... \n` + 
     `Name: ${req.body.name}, Email: ${req.body.email}`;
 
-  let mailOptions = {
+  const mailOptions = {
     from: 'John Doe <murygin.development@gmail.com>',
-    to: 'muriginm@gmail.com',
+    to: config.destinationEmail,
     subject: 'Website Submission',
     text: message,
     html: '<h1>New Submission</h1><p> You got a new submission</p>'
